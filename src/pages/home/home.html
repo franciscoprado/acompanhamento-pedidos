@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-title>Meus Pedidos</ion-title>
+
+    <!-- início card do pedido -->
+    <ion-card *ngFor="let pedido of pedidos" (click)="gotoPedido(pedido)">
+        <ion-grid>
+            <ion-row>
+                <ion-col width-33>
+                    <img src="{{ pedido.imagem }}" />
+                </ion-col>
+                <ion-col width-66 padding>
+                    <h2>{{ pedido.titulo }}</h2>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+    <!-- fim card do pedido -->
+
+</ion-content>
