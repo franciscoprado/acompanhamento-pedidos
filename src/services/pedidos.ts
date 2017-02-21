@@ -14,7 +14,6 @@ export class PedidosService {
         this.http.get("http://localhost:8080/acompanhamento-pedidos/lista-pedidos.php")
             .subscribe(res => {
                 this.data = res.json();
-                console.log(this.data);
             }, error => {
                 console.log(error);
             });
