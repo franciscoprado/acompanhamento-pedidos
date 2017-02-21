@@ -1,16 +1,45 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Página de Pedido
+            {{ pedido.titulo }}
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-card padding>
-        <ion-card-header>
-            <h6>{{ pedido.titulo }}</h6>
-        </ion-card-header>
-        <button ion-button block navPop>Voltar</button>
+        <ion-grid>
+            <ion-row>
+                <ion-col center width-33>
+                    <img src="{{ pedido.imagem }}" />
+                </ion-col>
+                <ion-col width-66 padding>
+                    <p>{{ pedido.data | formatarData }}</p>
+                    <h2>{{ pedido.titulo | uppercase }}</h2>
+                    <p>{{ pedido.valor | formatarPreco }}</p>
+                    <p>Qtd.: {{ pedido.quantidade }}</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+
+    <ion-card padding>
+        <ion-title>
+            Pagamento
+        </ion-title>
+        <br>
+        <p>
+            <strong>Tipo:</strong> {{ pedido.tipo_pagamento }}
+        </p>
+        <p>
+            <strong>Status:</strong> {{ pedido.status_pagamento }}
+        </p>
+        <p>
+            <strong>Data:</strong> {{ pedido.data_pagamento | formatarData }}
+        </p>
     </ion-card>
 </ion-content>
+
+<ion-footer padding>
+    <button ion-button block navPop>Voltar</button>
+</ion-footer>
