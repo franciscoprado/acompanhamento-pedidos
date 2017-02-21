@@ -25,13 +25,10 @@ export class HomePage {
     }
   ];
 
+  page = PedidoPage;
+
   constructor(public navCtrl: NavController) {
 
-  }
-
-  gotoPedido(pedido) {
-    console.log('o código do produto é', pedido);
-    this.navCtrl.push(PedidoPage);
   }
 
 }
