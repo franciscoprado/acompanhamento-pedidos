@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FormatarPreco implements PipeTransform {
     transform(produtos: any, arg):any {
         let precoTotal: number = 0;
-        let moeda: string = "R$";
         let valor: string;
 
         if (produtos instanceof Array) {
@@ -13,12 +12,11 @@ export class FormatarPreco implements PipeTransform {
                 precoTotal += produtos[i].Valor;
             }
         }
-
-        if (arg !== '') {
-            moeda = arg;
+        else {
+            precoTotal = produtos;
         }
 
-        valor = moeda + " " + precoTotal.toFixed(2).replace('.', ',');
+        valor = precoTotal.toFixed(2).replace('.', ',');
 
         return valor;
     }

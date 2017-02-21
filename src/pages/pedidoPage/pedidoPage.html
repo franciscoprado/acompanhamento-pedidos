@@ -1,40 +1,59 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            {{ pedido.titulo }}
+            {{ pedido.Titulo }}
         </ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-card padding>
-        <ion-grid>
-            <ion-row>
-                <ion-col center width-33>
-                    <img src="{{ pedido.imagem }}" />
-                </ion-col>
-                <ion-col width-66 padding>
-                    <p>{{ pedido.data | formatarData }}</p>
-                    <h2>{{ pedido.titulo | uppercase }}</h2>
-                    <p>{{ pedido.valor | formatarPreco }}</p>
-                    <p>Qtd.: {{ pedido.quantidade }}</p>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+    <ion-card>
+        <ion-list>
+            <ion-list-header>
+                {{ pedido.Titulo }}
+            </ion-list-header>
+            <ion-item>
+                <strong>Realizado em:</strong> {{ pedido.Data }}
+            </ion-item>
+            <ion-item>
+                R$ {{ pedido.Produtos | formatarPreco }}
+            </ion-item>
+            <ion-item>
+                Qtd.: {{ pedido.Produtos?.length }}
+            </ion-item>
+        </ion-list>
     </ion-card>
 
-    <ion-card padding>
-        <ion-title>Pagamento</ion-title>
-        <br>
-        <p>
-            <strong>Tipo:</strong> {{ pedido.tipo_pagamento }}
-        </p>
-        <p>
-            <strong>Status:</strong> {{ pedido.status_pagamento }}
-        </p>
-        <p>
-            <strong>Data:</strong> {{ pedido.data_pagamento | formatarData }}
-        </p>
+    <ion-card>
+        <ion-list>
+            <ion-list-header>
+                Pagamento
+            </ion-list-header>
+            <ion-item>
+                <strong>Tipo:</strong> {{ pedido.TipoPagamento }}
+            </ion-item>
+            <ion-item>
+                <strong>Status:</strong> {{ pedido.Status }}
+            </ion-item>
+            <ion-item>
+                <strong>Data:</strong> {{ pedido.DataPagamento }}
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-list-header>
+                Produtos
+            </ion-list-header>
+            <ion-item *ngFor="let produto of pedido.Produtos">
+                <ion-thumbnail item-left>
+                    <img src="{{ produto.SrcImagem }}">
+                </ion-thumbnail>
+                <h2>{{ produto.Descricao }}</h2>
+                <p>R$ {{ produto.Valor | formatarPreco }}</p>
+            </ion-item>
+        </ion-list>
     </ion-card>
 
     <ion-card padding>

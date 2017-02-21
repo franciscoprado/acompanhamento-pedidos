@@ -11,19 +11,28 @@
 
     <!-- início card do pedido -->
     <ion-card *ngFor="let pedido of pedidos.data" [navPush]="page" [navParams]="pedido">
-        <ion-grid>
-            <ion-row>
-                <ion-col width-33>
-                    <img src="{{ pedido.Imagem }}" />
-                </ion-col>
-                <ion-col width-66 padding>
-                    <small>{{ pedido.Data }}</small>
-                    <h2>{{ pedido.Titulo }}</h2>
-                    <p>{{ pedido.Produtos | formatarPreco:"R$" }}</p>
-                    <p>Qtd.: {{ pedido.Produtos?.length }}</p>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+        <ion-list-header>
+            Pedido #{{ pedido.Id }}
+        </ion-list-header>
+
+        <div padding>
+            <p>{{ pedido.Data }}</p>
+            <h2>{{ pedido.Titulo }}</h2>
+            <p>R$ {{ pedido.Produtos | formatarPreco }}</p>
+            <p>Qtd.: {{ pedido.Produtos?.length }}</p>
+        </div>
+
+        <ion-list>
+            <ion-item *ngFor="let produto of pedido.Produtos">
+                <ion-thumbnail item-left>
+                    <img src="{{ produto.SrcImagem }}">
+                </ion-thumbnail>
+                <h2>{{ produto.Descricao }}</h2>
+                <p>R$ {{ produto.Valor | formatarPreco }}</p>
+            </ion-item>
+
+        </ion-list>
+
     </ion-card>
     <!-- fim card do pedido -->
 
