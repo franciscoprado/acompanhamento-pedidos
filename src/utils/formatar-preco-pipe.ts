@@ -3,16 +3,23 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'formatarPreco'})
 
 export class FormatarPreco implements PipeTransform {
-    transform(valor: any, arg):any {
-        valor = valor.toFixed(2);
-        let moeda:string = "R$";
+    transform(produtos: any, arg):any {
+        let precoTotal: number = 0;
+        let moeda: string = "R$";
+        let valor: string;
 
-        if (arg != undefined) {
+        if (produtos instanceof Array) {
+            for (let i = 0; i < produtos.length; i++) {
+                precoTotal += produtos[i].Valor;
+            }
+        }
+
+        if (arg !== '') {
             moeda = arg;
         }
 
-        let formatado = moeda + " " + valor.replace('.', ',');
+        valor = moeda + " " + precoTotal.toFixed(2).replace('.', ',');
 
-        return formatado;
+        return valor;
     }
 }

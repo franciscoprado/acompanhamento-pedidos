@@ -24,9 +24,7 @@
     </ion-card>
 
     <ion-card padding>
-        <ion-title>
-            Pagamento
-        </ion-title>
+        <ion-title>Pagamento</ion-title>
         <br>
         <p>
             <strong>Tipo:</strong> {{ pedido.tipo_pagamento }}
@@ -37,6 +35,20 @@
         <p>
             <strong>Data:</strong> {{ pedido.data_pagamento | formatarData }}
         </p>
+    </ion-card>
+
+    <ion-card padding>
+        <ion-title>Status</ion-title>
+        <div class="status-timeline">
+            <ol>
+                <li><span class="passo sucesso">1</span></li>
+                <li><span class="passo sucesso">2</span></li>
+                <li><span class="passo sucesso">3</span></li>
+                <li><span class="passo">4</span></li>
+                <li><span class="passo">5</span></li>
+            </ol>
+        </div>
+        <h2 class="status-descricao">Pedido em transporte</h2>
     </ion-card>
 </ion-content>
 

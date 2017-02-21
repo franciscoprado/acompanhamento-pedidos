@@ -14,13 +14,13 @@
         <ion-grid>
             <ion-row>
                 <ion-col width-33>
-                    <img src="{{ pedido.imagem }}" />
+                    <img src="{{ pedido.Imagem }}" />
                 </ion-col>
                 <ion-col width-66 padding>
-                    <small>{{ pedido.data | formatarData : 'd/m/Y' }}</small>
-                    <h2>{{ pedido.titulo }}</h2>
-                    <p>{{ pedido.valor | formatarPreco }}</p>
-                    <p>Qtd.: {{ pedido.quantidade }}</p>
+                    <small>{{ pedido.Data }}</small>
+                    <h2>{{ pedido.Titulo }}</h2>
+                    <p>{{ pedido.Produtos | formatarPreco:"R$" }}</p>
+                    <p>Qtd.: {{ pedido.Produtos?.length }}</p>
                 </ion-col>
             </ion-row>
         </ion-grid>
