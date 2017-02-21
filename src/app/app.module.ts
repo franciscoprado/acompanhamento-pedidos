@@ -3,6 +3,7 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PedidoPage } from '../pages/pedidoPage/pedidoPage';
+import { PedidosService } from '../services/pedidos';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,6 @@ import { PedidoPage } from '../pages/pedidoPage/pedidoPage';
     HomePage,
     PedidoPage
   ],
-  providers: []
+  providers: [PedidosService]
 })
 export class AppModule {}

@@ -8,9 +8,10 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 
 export class PedidoPage {
+    pedido: any;
+
     constructor(public navCtrl: NavController, public params: NavParams) {
-        let dadosPedido = params.data;
-        console.log('params', dadosPedido);
+        this.pedido = params.data;
     }
 
     goBack() {

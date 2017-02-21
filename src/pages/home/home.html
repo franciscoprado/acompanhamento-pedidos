@@ -10,7 +10,7 @@
     <ion-title>Meus Pedidos</ion-title>
 
     <!-- início card do pedido -->
-    <ion-card *ngFor="let pedido of pedidos" [navPush]="page" [navParams]="pedido">
+    <ion-card *ngFor="let pedido of pedidos.data" [navPush]="page" [navParams]="pedido">
         <ion-grid>
             <ion-row>
                 <ion-col width-33>

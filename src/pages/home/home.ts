@@ -4,31 +4,19 @@ import { NavController } from 'ionic-angular';
 
 import { PedidoPage } from '../pedidoPage/pedidoPage';
 
+import { PedidosService } from '../../services/pedidos';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 
 export class HomePage {
-  pedidos = [
-    {
-      codigo: 1,
-      imagem: "https://openclipart.org/image/2400px/svg_to_png/211800/matt-icons_package.png",
-      titulo: 'Pedido XPTO',
-      descricao: 'Produto XPTO foi pedido etc etc.'
-    },
-    {
-      codigo: 2,
-      imagem: "https://openclipart.org/image/2400px/svg_to_png/211800/matt-icons_package.png",
-      titulo: 'Pedido ABC',
-      descricao: 'Produto ABC foi pedido etc etc.'
-    }
-  ];
-
   page = PedidoPage;
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public pedidos: PedidosService) {
+    this.pedidos = pedidos;
+    this.pedidos.obterPedidos();
   }
 
 }
