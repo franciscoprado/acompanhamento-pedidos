@@ -12,7 +12,7 @@
     <!-- início card do pedido -->
     <ion-card *ngFor="let pedido of pedidos.data" [navPush]="page" [navParams]="pedido">
         <ion-list-header>
-            Pedido #{{ pedido.Id }}
+            PEDIDO #{{ pedido.Id }}
         </ion-list-header>
 
         <div padding>
@@ -27,7 +27,7 @@
                 <ion-thumbnail item-left>
                     <img src="{{ produto.SrcImagem }}">
                 </ion-thumbnail>
-                <h2>{{ produto.Descricao }}</h2>
+                <h2>{{ produto.Descricao | abreviarTexto:25 }}</h2>
                 <p>R$ {{ produto.Valor | formatarPreco }}</p>
             </ion-item>
 

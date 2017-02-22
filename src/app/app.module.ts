@@ -4,16 +4,16 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PedidoPage } from '../pages/pedidoPage/pedidoPage';
 import { PedidosService } from '../services/pedidos';
-import { FormatarDataPipe } from '../utils/formatar-data-pipe';
 import { FormatarPreco } from '../utils/formatar-preco-pipe';
+import { AbreviarTexto } from '../utils/abreviar-texto-pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     PedidoPage,
-    FormatarDataPipe,
-    FormatarPreco
+    FormatarPreco,
+    AbreviarTexto
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -24,6 +24,6 @@ import { FormatarPreco } from '../utils/formatar-preco-pipe';
     HomePage,
     PedidoPage
   ],
-  providers: [PedidosService, FormatarPreco]
+  providers: [PedidosService, FormatarPreco, AbreviarTexto]
 })
 export class AppModule {}

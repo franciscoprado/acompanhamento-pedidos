@@ -16,10 +16,25 @@
                 <strong>Realizado em:</strong> {{ pedido.Data }}
             </ion-item>
             <ion-item>
-                R$ {{ pedido.Produtos | formatarPreco }}
+                <strong>Valor Total:</strong> R$ {{ pedido.Produtos | formatarPreco }}
             </ion-item>
             <ion-item>
-                Qtd.: {{ pedido.Produtos?.length }}
+                <strong>Qtd.:</strong> {{ pedido.Produtos?.length }}
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-list-header>
+                Produtos
+            </ion-list-header>
+            <ion-item *ngFor="let produto of pedido.Produtos">
+                <ion-thumbnail item-left>
+                    <img src="{{ produto.SrcImagem }}">
+                </ion-thumbnail>
+                <h2>{{ produto.Descricao | abreviarTexto:30 }}</h2>
+                <p>R$ {{ produto.Valor | formatarPreco }}</p>
             </ion-item>
         </ion-list>
     </ion-card>
@@ -44,30 +59,12 @@
     <ion-card>
         <ion-list>
             <ion-list-header>
-                Produtos
+                Status
             </ion-list-header>
-            <ion-item *ngFor="let produto of pedido.Produtos">
-                <ion-thumbnail item-left>
-                    <img src="{{ produto.SrcImagem }}">
-                </ion-thumbnail>
-                <h2>{{ produto.Descricao }}</h2>
-                <p>R$ {{ produto.Valor | formatarPreco }}</p>
+            <ion-item>
+
             </ion-item>
         </ion-list>
-    </ion-card>
-
-    <ion-card padding>
-        <ion-title>Status</ion-title>
-        <div class="status-timeline">
-            <ol>
-                <li><span class="passo sucesso">1</span></li>
-                <li><span class="passo sucesso">2</span></li>
-                <li><span class="passo sucesso">3</span></li>
-                <li><span class="passo">4</span></li>
-                <li><span class="passo">5</span></li>
-            </ol>
-        </div>
-        <h2 class="status-descricao">Pedido em transporte</h2>
     </ion-card>
 </ion-content>
 
