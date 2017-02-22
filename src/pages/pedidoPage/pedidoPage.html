@@ -56,14 +56,40 @@
         </ion-list>
     </ion-card>
 
-    <ion-card>
+    <ion-card class="status-timeline">
         <ion-list>
             <ion-list-header>
                 Status
             </ion-list-header>
-            <ion-item>
 
+            <ion-item>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col width-20 class="status-horario">
+                            <p class="horario">8:30</p>
+                            <p class="horario">8:30</p>
+                            <p class="horario">8:30</p>
+                            <p class="horario">8:30</p>
+                            <p class="horario">8:30</p>
+                        </ion-col>
+                        <ion-col width-10 class="passos">
+                            <span class="passo concluido"></span>
+                            <span class="passo atual"></span>
+                            <span class="passo"></span>
+                            <span class="passo"></span>
+                            <span class="passo"></span>
+                        </ion-col>
+                        <ion-col width-70>
+                            <h2 class="status-descricao">Aguardando Pagamento</h2>
+                            <h2 class="status-descricao">Emissão de Nota Fiscal</h2>
+                            <h2 class="status-descricao">Em Separação</h2>
+                            <h2 class="status-descricao">Em Transporte</h2>
+                            <h2 class="status-descricao">Entregue</h2>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
             </ion-item>
+
         </ion-list>
     </ion-card>
 </ion-content>
