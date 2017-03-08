@@ -25,10 +25,13 @@
             border-radius: 20px;
             border: solid 3px black;
             &.concluido {
-                background-color: black;
+                background-color: greenyellow;
             }
             &.atual {
-                background-color: greenyellow;
+                background-color: yellow;
+            }
+            &.erro {
+                background-color: red;
             }
             &:last-child {
                 margin: 0 auto;
