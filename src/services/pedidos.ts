@@ -6,7 +6,9 @@ import { Events } from 'ionic-angular';
 export class PedidosService {
     private http: any;
     private data: any;
-    private url: string = "http://portalaasp.7comm.com.br:2525/api/Pedidos";
+
+    // original: http://portalaasp.7comm.com.br:2525/api/Pedidos
+    private url: string = "https://raw.githubusercontent.com/franciscoprado/acompanhamento-pedidos/master/src/assets/json/sample.json";
 
     constructor(http: Http, public events: Events) {
         this.events = events;
